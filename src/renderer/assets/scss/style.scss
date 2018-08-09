@@ -1,0 +1,68 @@
+/**
+ * V 연습 UI
+ * @from core UI customizing
+ */
+// 사이드바 스타일
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386D5;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar p.heading {
+  padding: 10px 10px 0;
+  font-size: 1.5em;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #6d7fcc;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#main {
+  min-height: 100vh;
+  flex-grow: 1;
+  transition: all 0.3s ease;
+}
+
+#content {
+  padding: 20px;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+
+  #sidebar.active {
+    margin-left: 0;
+  }
+
+  #sidebarCollapse span {
+    display: none;
+  }
+}

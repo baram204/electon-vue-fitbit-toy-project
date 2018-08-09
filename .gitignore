@@ -9,5 +9,3 @@ npm-debug.log
 npm-debug.log.*
 thumbs.db
 !.gitkeep
-vcs.xml
-workspace.xml

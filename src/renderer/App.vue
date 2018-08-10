@@ -10,7 +10,10 @@
   }
 </script>
 
-<!--<style lang="scss">-->
-  <!--// Import Main styles for this application-->
-  <!--@import './assets/scss/style';-->
-<!--</style>-->
+<style lang="scss">
+
+  @import '~bootstrap/dist/css/bootstrap.css';
+  @import '~bootstrap-vue/dist/bootstrap-vue.css';
+  // Import Main styles for this application
+  @import './assets/scss/style';
+</style>

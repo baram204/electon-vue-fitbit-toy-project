@@ -35,9 +35,9 @@ export default new Router({
               component: require('@/views/basic/Instance').default
             },
             {
-              path: 'component',
+              path: 'components',
               name: '뷰 컴포넌트',
-              component: require('@/views/basic/Component').default
+              component: require('@/views/basic/Components').default
             }
           ]
         }

@@ -1,7 +1,7 @@
 <template>
-    <b-list-group class="tree list-unstyled" :class="className || 'components'">
+    <b-list-group id="group" class="tree list-unstyled" :class="className || 'components'">
 
-        <b-list-group-item v-for="(node, i) in nodes" :key="i"
+        <b-list-group-item id="item" v-for="(node, i) in nodes" :key="i"
                            :class="{[node.class]: node.class, cta: node.button, separator: node.separator}">
 
             <template v-if="!node.links">
@@ -11,21 +11,18 @@
                 </template>
             </template>
 
-
             <template v-else>
                 <a :href="'#' + slug(i)" :ref="slug(i)"
                    data-toggle="collapse" aria-expanded="false"
-                   v-html="node.label" role="button" @click="toggleAndActive(slug(i),$refs[slug(i)])">
+                   v-html="node.label" role="button" @click="toggleAndActive(slug(i))">
                 </a>
+                <!--v-html="node.label" role="button" @click="toggleAndActive(slug(i),$refs[slug(i)])">-->
                 <b-collapse :visible="slug(i) === expanded ? true : false">
                     <tree-menu :nodes="node.links" :id="slug(i)" :level="level + 1" className="nested"
                                style="padding-left: 20px;"></tree-menu>
                 </b-collapse>
 
             </template>
-        </b-list-group-item>
-        <b-list-group-item>
-            <p>{{$refs}}</p>
         </b-list-group-item>
     </b-list-group>
 
@@ -43,10 +40,8 @@
       slug (i) {
         return 'node-' + this.level + '-' + i
       },
-      toggleAndActive (slugI, el) {
+      toggleAndActive (slugI) {
         this.expanded = this.expanded === slugI ? '' : slugI
-        alert(this.$refs[slugI].className)
-        alert(this.$refs[slugI].className)
       }
     },
     data () {
@@ -152,7 +147,7 @@
         top: 15px;
     }
 
-    >>> a.active {
+    a.active {
         background: #98aaff;
     }
 </style>

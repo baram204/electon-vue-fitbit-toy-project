@@ -28,11 +28,11 @@
             ]
           },
           {
-            label: '기초',
+            label: '컴포넌트',
             // href: '#/basic',
             links: [
-              {label: '뷰인스턴스', href: '#/basic/instance'},
-              {label: '뷰컴포넌트', href: '#/basic/components'}
+              {label: '마크다운', href: '#/components/markdown'},
+              {label: '소메뉴2', href: '#/basic/components'}
             ]
           }
         ],

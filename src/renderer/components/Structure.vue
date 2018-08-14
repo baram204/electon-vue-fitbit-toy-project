@@ -19,20 +19,44 @@
             label: '홈',
             href: '#/home'
           },
+          // {
+          //   label: '기초',
+          //   // href: '#/basic',
+          //   links: [
+          //     {label: '뷰인스턴스', href: '#/basic/instance'},
+          //     {label: '뷰컴포넌트', href: '#/basic/components'}
+          //   ]
+          // },
           {
-            label: '기초',
+            label: '입문',
             // href: '#/basic',
             links: [
-              {label: '뷰인스턴스', href: '#/basic/instance'},
-              {label: '뷰컴포넌트', href: '#/basic/components'}
+              {label: '기초페이지', href: '#/basic/first'},
+              {label: '플젝구성', href: '#/basic/project'},
+              {label: '인스턴스', href: '#/basic/instance'},
+              {label: '컴포넌트', href: '#/basic/components'},
+              {label: '라우터', href: '#/basic/router'},
+              {label: 'HTTP axios 통신', href: '#/basic/axios'},
+              {label: '템플릿', href: '#/basic/template'},
+              {label: '실습 Todo', href: '#/basic/excercise'},
+              {label: 'vuex', href: '#/basic/vuex'},
+              {label: '웹팩', href: '#/basic/webpack'}
             ]
           },
           {
-            label: '컴포넌트',
-            // href: '#/basic',
+            label: '심화예시',
+            // href: '#/advance',
             links: [
-              {label: '마크다운', href: '#/components/markdown'},
-              {label: '소메뉴2', href: '#/basic/components'}
+              {label: '기초페이지', href: '#/advance/first'},
+              {label: '플젝구성', href: '#/advance/project'},
+              {label: '인스턴스', href: '#/advance/instance'},
+              {label: '컴포넌트', href: '#/advance/component'},
+              {label: '라우터', href: '#/advance/router'},
+              {label: 'HTTP axios 통신', href: '#/advance/axios'},
+              {label: '템플릿', href: '#/advance/template'},
+              {label: '실습 Todo', href: '#/advance/excercise'},
+              {label: 'vuex', href: '#/advance/vuex'},
+              {label: '웹팩', href: '#/advance/webpack'}
             ]
           }
         ],

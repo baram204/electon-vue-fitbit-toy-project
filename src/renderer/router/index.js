@@ -17,55 +17,43 @@ export default new Router({
           component: require('@/views/Home').default
         },
         {
-          path: 'basic',
-          name: '기초',
-          redirect: '/basic/basic',
-          component: {
-            render (c) { return c('router-view') }
-          },
-          children: [
-            {
-              path: 'basic',
-              name: '기초 화면',
-              component: require('@/views/basic/Basic').default
-            },
-            {
-              path: 'instance',
-              name: '뷰 인스턴스',
-              component: require('@/views/basic/Instance').default
-            },
-            {
-              path: 'components',
-              name: '뷰 컴포넌트',
-              component: require('@/views/basic/Components').default
-            }
-          ]
+          path: '/basic/:name',
+          name: '입문',
+          // redirect: '/basic/basic',
+          component: require('@/components/BasicRenderComp').default
         },
         {
-          path: 'components',
-          name: '컴포넌트들',
+          path: '/advance/:name',
+          name: '심화',
           // redirect: '/basic/basic',
-          component: {
-            render (c) { return c('router-view') }
-          },
-          children: [
-            {
-              path: 'markdown',
-              name: '마크다운',
-              component: require('@/views/components/markdown').default
-            },
-            {
-              path: 'instance',
-              name: '뷰 인스턴스',
-              component: require('@/views/basic/Instance').default
-            },
-            {
-              path: 'components',
-              name: '뷰 컴포넌트',
-              component: require('@/views/basic/Components').default
-            }
-          ]
+          component: require('@/components/AdvanceRenderComp').default
         }
+        // 아래는 순정 라우터 설정, 위의 다이나믹 컴포넌트 렌더링 처리해서 필요 없음
+        // {
+        //   path: 'basic',
+        //   name: '기초',
+        //   redirect: '/basic/basic',
+        //   component: {
+        //     render (c) { return c('router-view') }
+        //   },
+        //   children: [
+        //     {
+        //       path: 'basic',
+        //       name: '기초 화면',
+        //       component: require('@/views/basic/Basic').default
+        //     },
+        //     {
+        //       path: 'instance',
+        //       name: '뷰 인스턴스',
+        //       component: require('@/views/basic/Instance').default
+        //     },
+        //     {
+        //       path: 'components',
+        //       name: '뷰 컴포넌트',
+        //       component: require('@/views/basic/Components').default
+        //     }
+        //   ]
+        // },
       ]
     },
     {

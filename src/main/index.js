@@ -25,6 +25,8 @@ function createWindow () {
     width: 1000
   })
 
+  mainWindow.setMenu(null)
+
   mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {

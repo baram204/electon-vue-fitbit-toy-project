@@ -58,6 +58,13 @@
               {label: 'vuex', href: '#/advance/vuex'},
               {label: '웹팩', href: '#/advance/webpack'}
             ]
+          },
+          {
+            label: '연습',
+            // href: '#/advance',
+            links: [
+              {label: '핏빗인증', href: '#/excercise/fitbit'}
+            ]
           }
         ],
         header: [

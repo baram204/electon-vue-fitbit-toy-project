@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>vue-elec-prac</title>
     <% if (htmlWebpackPlugin.options.nodeModules) { %>
-      <!-- Add `node_modules/` to global paths so `require` works properly in development -->
-      <script>
-        require('module').globalPaths.push('<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>')
-      </script>
+        <!-- Add `node_modules/` to global paths so `require` works properly in development -->
+        <script>
+          require('module').globalPaths.push('<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>')
+        </script>
     <% } %>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- Set `__static` path to static files in production -->
-    <script>
-      if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
-    </script>
 
-    <!-- webpack builds are automatically injected -->
-  </body>
+    <script>
+      const callbackResponse = (document.URL).split('#')[1]
+      let responseParameters
+      if (callbackResponse.length > 0) {
+        responseParameters = (callbackResponse).split('&')
+      }
+      if (responseParameters.length > 0) {
+        const params = {}
+        responseParameters.forEach( pair => {
+          const key = pair.split('=')[0]
+          const value = pair.split('=')[1]
+          params[key] = value
+        })
+        console.log(params)
+        if (params.access_token !== undefined && params.access_token !== null) {
+          console.log('run href')
+          const fitbit = {
+            oauth: {
+              access_token: params.access_token,
+              expires_in: params.expires_in,
+              account_user_id: params.user_id
+            }
+          }
+          // Change this redirect link to wherever your dashboard is located.
+          window.location.href = 'http://localhost:9080/#/oauth-callback/' +
+            fitbit.oauth.access_token + '/' +
+            fitbit.oauth.expires_in + '/' +
+            fitbit.oauth.account_user_id
+        } else {
+          // alert('Problem authenticating.')
+        }
+      } else {
+        // alert('No auth params present. Problem authenticating.')
+      }
+    </script>
+</head>
+<body>
+<div id="app"></div>
+<!-- Set `__static` path to static files in production -->
+<script>
+  if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+</script>
+
+<!-- webpack builds are automatically injected -->
+</body>
 </html>

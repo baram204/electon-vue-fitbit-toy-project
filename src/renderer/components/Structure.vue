@@ -1,6 +1,7 @@
 <template>
     <div class="app">
         <vue2-sidebar heading="뷰연습" :links="links" :header-links="header">
+            {{$route.fullPath}}
             <router-view></router-view>
         </vue2-sidebar>
     </div>
@@ -57,6 +58,13 @@
               {label: '실습 Todo', href: '#/advance/excercise'},
               {label: 'vuex', href: '#/advance/vuex'},
               {label: '웹팩', href: '#/advance/webpack'}
+            ]
+          },
+          {
+            label: '연습',
+            // href: '#/advance',
+            links: [
+              {label: '핏빗인증', href: '#/excercise/fitbit'}
             ]
           }
         ],

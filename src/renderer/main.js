@@ -14,6 +14,21 @@ Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.component('vue-markdown', VueMarkdown)
 
+Vue.prototype.$fitbit = {
+  token: window.localStorage.getItem('fitbitOauthToken'),
+  expiresIn: window.localStorage.getItem('fitbitOauthExpiresIn'),
+  accountUserId: window.localStorage.getItem('fitbitOauthAccountUserId'),
+  isLoggedIn: window.localStorage.getItem('fitbitOauthToken') !== undefined
+}
+
+Vue.prototype.$axios = axios
+
+if (Vue.prototype.$fitbit.token !== undefined) {
+  Vue.prototype.$axios.defaults.headers.common = {
+    'Authorization': 'Bearer ' + Vue.prototype.$fitbit.token
+  }
+}
+
 /* eslint-disable no-new */
 new Vue({
   components: {App},

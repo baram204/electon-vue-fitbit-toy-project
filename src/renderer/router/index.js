@@ -6,7 +6,16 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/oauth-callback/:token/:expiresIn/:accountUserId',
+      name: 'OAuth Callback Token',
+      component: require('@/components/OAuthCallback').default
+    },
+    {
       path: '/',
+      beforeEnter: (to, from, next) => {
+        console.log(from.params)
+        next()
+      },
       redirect: '/home',
       name: 'Home',
       component: require('@/components/Structure').default,
@@ -27,6 +36,12 @@ export default new Router({
           name: '심화',
           // redirect: '/basic/basic',
           component: require('@/components/AdvanceRenderComp').default
+        },
+        {
+          path: '/excercise/:name',
+          name: '예시',
+          // redirect: '/basic/basic',
+          component: require('@/components/ExcerciseRenderComp').default
         }
         // 아래는 순정 라우터 설정, 위의 다이나믹 컴포넌트 렌더링 처리해서 필요 없음
         // {

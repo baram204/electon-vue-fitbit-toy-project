@@ -3,10 +3,10 @@
     이전 계속 유지한다. 즉, 뭘 해놓으면 상태가 유지된다.-->
     <!--<div>-->
     <!--<keep-alive>-->
-    <!--<div>-->
-        <!--<div>{{$route.params}}</div>-->
+    <div>
+        <div>{{$route.params}}</div>
         <component :is="dynamicComponent"></component>
-    <!--</div>-->
+    </div>
     <!--</keep-alive>-->
     <!--</div>-->
 </template>

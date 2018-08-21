@@ -18,12 +18,12 @@
       'first': require('@/views/basic/First').default,
       // 'project': require('@/views/basic/project').default,
       'instance': require('@/views/basic/Instance').default,
-      'components': require('@/views/basic/Components').default
+      'components': require('@/views/basic/Components').default,
       // 'router': require('@/views/basic/router').default,
       // 'axios': require('@/views/basic/axios').default,
       // 'template': require('@/views/basic/template').default,
       // 'excercise': require('@/views/basic/excercise').default,
-      // 'vuex': require('@/views/basic/vuex').default,
+      'vuex': require('@/views/basic/Vuex').default
       // 'webpack': require('@/views/basic/webpack').default
     },
     computed: {

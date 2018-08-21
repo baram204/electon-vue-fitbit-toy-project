@@ -2,6 +2,10 @@ import Vue from 'vue'
 import axios from 'axios'
 import BootstrapVue from 'bootstrap-vue'
 import VueMarkdown from 'vue-markdown'
+import VueCodemirror from 'vue-codemirror'
+
+// require styles
+import 'codemirror/lib/codemirror.css'
 
 import App from './App'
 import router from './router'
@@ -12,7 +16,8 @@ Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 Vue.use(BootstrapVue)
-Vue.component('vue-markdown', VueMarkdown)
+Vue.component('md', VueMarkdown)
+Vue.use(VueCodemirror)
 
 Vue.prototype.$fitbit = {
   token: window.localStorage.getItem('fitbitOauthToken'),

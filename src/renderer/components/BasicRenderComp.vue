@@ -4,7 +4,7 @@
     <!--<div>-->
     <!--<keep-alive>-->
     <div>
-        <div>{{$route.params}}</div>
+        <!--<div>{{$route.params}}</div>-->
         <component :is="dynamicComponent"></component>
     </div>
     <!--</keep-alive>-->

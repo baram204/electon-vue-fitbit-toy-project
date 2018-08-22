@@ -17,7 +17,7 @@
                    v-html="node.label" role="button" @click="toggleAndActive(slug(i))">
                 </a>
                 <!--v-html="node.label" role="button" @click="toggleAndActive(slug(i),$refs[slug(i)])">-->
-                <b-collapse :visible="slug(i) === expanded ? true : false">
+                <b-collapse :visible="slug(i) === expanded ? true : false" id="subitem">
                     <tree-menu :nodes="node.links" :id="slug(i)" :level="level + 1" className="nested"
                                style="padding-left: 20px;"></tree-menu>
                 </b-collapse>

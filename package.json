@@ -62,7 +62,9 @@
     "vue-codemirror": "^4.0.5",
     "vue-codemirror-lite": "^1.0.4",
     "vue-electron": "^1.0.6",
+    "vue-lodash": "^2.0.0",
     "vue-markdown": "^2.2.4",
+    "vue-moment": "^4.0.0",
     "vue-router": "^2.5.3",
     "vue2-sidebar": "0.0.11",
     "vuex": "^2.3.1"

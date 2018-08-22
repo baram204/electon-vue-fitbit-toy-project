@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <vue2-sidebar heading="뷰연습" :links="links" :header-links="header">
-            {{$route.fullPath}}
+            <!--{{$route.fullPath}}-->
             <router-view></router-view>
         </vue2-sidebar>
     </div>

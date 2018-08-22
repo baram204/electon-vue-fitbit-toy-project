@@ -13,10 +13,12 @@
     <script>
       const callbackResponse = (document.URL).split('#')[1]
       let responseParameters
-      if (callbackResponse.length > 0) {
+      if (callbackResponse !== '' && callbackResponse !== undefined) {
         responseParameters = (callbackResponse).split('&')
       }
-      if (responseParameters.length > 0) {
+      // 파라미터가 한개라도 있어햐만 실행
+      if (responseParameters.length > 1) {
+        console.log(responseParameters)
         const params = {}
         responseParameters.forEach( pair => {
           const key = pair.split('=')[0]

@@ -12,10 +12,6 @@ export default new Router({
     },
     {
       path: '/',
-      beforeEnter: (to, from, next) => {
-        console.log(from.params)
-        next()
-      },
       redirect: '/home',
       name: 'Home',
       component: require('@/components/Structure').default,

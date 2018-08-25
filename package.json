@@ -57,6 +57,9 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "babel-standalone": "^6.26.0",
+    "codemirror": "^5.39.2",
+    "simple-assign": "^0.1.0",
     "uninstall": "0.0.0",
     "vue": "^2.3.3",
     "vue-codemirror": "^4.0.5",

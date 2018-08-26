@@ -10,7 +10,7 @@ export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   state: {
     // 현재 상태
-    name: '바지',
+    name: '지훈',
     age: 20,
     dob: '20/08/1990',
     fitbit: {

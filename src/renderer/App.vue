@@ -17,14 +17,6 @@
   // Import Main styles for this application
   @import './assets/scss/style';
 
-  // for CodeMirror height shrink
-  // https://github.com/surmon-china/vue-codemirror/issues/48
-  // https://codemirror.net/demo/resize.html
-
-  .CodeMirror {
-    border: 1px solid #eee;
-    height: auto;
-  }
-
+  @import '~highlight.js/styles/ocean.css';
 
 </style>

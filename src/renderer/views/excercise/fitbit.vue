@@ -20,7 +20,7 @@
         <br/>
         <md>### 수면 정보를 얻어와 표시</md>
         <br/>
-        <resTable :items="sleepRes.items" :fields="sleepRes.fields" :stacked="false" :show="show"></resTable>
+        <resTable :items="sleepLogsList" :fields="sleepRes.fields" :stacked="false" :show="show"></resTable>
     </b-container>
 </template>
 
@@ -182,7 +182,7 @@
           }
         },
         sleepRes: {
-          items: '',
+          items: [],
           fields: {
             date: {label: '일자'},
             hour: {label: '기간'}
@@ -192,13 +192,36 @@
       }
     },
     computed: {
-      user () {
-        return this.$store.getters.fitbit.user === '' ? this.$store.getters.fitbit.user : ''
+      user: {
+        get () {
+          return this.$store.getters.fitbit.user !== '' ? this.$store.getters.fitbit.user : ''
+        },
+
+        set (val) {
+          var self = this
+          if (Object.keys(val).length > 0) {
+            setTimeout(function () {
+              self.show = true
+            }, 1000)
+          }
+        }
+
       },
-      sleepLogsList () {
-        return this.$store.getters.fitbit.sleepLogList === '' ? this.$store.getters.fitbit.sleepLogList.map((daily) =>
-          ({date: daily.dateOfSleep, hour: daily.duration})) : ''
+      sleepLogsList: {
+        get () {
+          return this.$store.getters.fitbit.sleepLogList !== '' ? this.$store.getters.fitbit.sleepLogList.map((daily) =>
+            ({date: daily.dateOfSleep, hour: daily.duration})) : ''
+        },
+        set (val) {
+          var self = this
+          if (Object.keys(val).length > 0) {
+            setTimeout(function () {
+              self.show = true
+            }, 1000)
+          }
+        }
       }
+
     },
     created () {
       this.$moment.locale('kr')
@@ -235,25 +258,7 @@
         ])
       }
     },
-    watch: {
-      user (val) {
-        var self = this
-        if (Object.keys(val).length > 0) {
-          setTimeout(function () {
-            self.show = true
-          }, 1000)
-        }
-      },
-      sleepLogsList (val) {
-        var self = this
-        if (Object.keys(val).length > 0) {
-          setTimeout(function () {
-            this.sleepRes.items = this.sleepLogsList()
-            self.show = true
-          }, 1000)
-        }
-      }
-    }
+    watch: {}
   }
 </script>
 

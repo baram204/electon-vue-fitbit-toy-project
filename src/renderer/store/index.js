@@ -22,6 +22,9 @@ export default new Vuex.Store({
     // 현재 상태를 기반으로 지연 계산된 상태, vue 의 computed 속성과 비슷하다.
     fitbit: state => {
       return state.fitbit
+    },
+    isAdult (state, getters) {
+      return state.age >= 18
     }
   },
   mutations: {
@@ -31,6 +34,9 @@ export default new Vuex.Store({
     },
     setFitbiSleepLogsList (state, sleepLosgsList) {
       state.fitbit.sleepLogList = sleepLosgsList
+    },
+    updateName (state, name) {
+      state.name = name
     }
   },
   actions: {

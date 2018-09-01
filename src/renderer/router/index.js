@@ -28,6 +28,14 @@ export default new Router({
           component: require('@/components/BasicRenderComp').default
         },
         {
+          path: 'router',
+          components: {
+            default: require('@/views/basic/router/Router').default,
+            namedHeader: require('@/views/basic/router/namedHeader').default,
+            namedFooter: require('@/views/basic/router/namedFooter').default
+          }
+        },
+        {
           path: '/advance/:name',
           name: '심화',
           // redirect: '/basic/basic',

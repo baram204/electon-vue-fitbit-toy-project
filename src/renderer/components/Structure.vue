@@ -2,7 +2,9 @@
     <div class="app">
         <vue2-sidebar heading="뷰연습" :links="links" :header-links="header">
             <!--{{$route.fullPath}}-->
+            <router-view name="namedHeader"></router-view>
             <router-view></router-view>
+            <router-view name="namedFooter"></router-view>
         </vue2-sidebar>
     </div>
 </template>
@@ -36,7 +38,7 @@
               {label: '플젝구성', href: '#/basic/project'},
               {label: '인스턴스', href: '#/basic/instance'},
               {label: '컴포넌트', href: '#/basic/components'},
-              {label: '라우터', href: '#/basic/router'},
+              {label: '라우터', href: '#/router'},
               {label: 'HTTP axios 통신', href: '#/basic/axios'},
               {label: '템플릿', href: '#/basic/template'},
               {label: '실습 Todo', href: '#/basic/excercise'},

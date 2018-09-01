@@ -20,7 +20,7 @@
       'instance': require('@/views/basic/Instance').default,
       'components': require('@/views/basic/Components').default,
       // 'router': require('@/views/basic/router').default,
-      // 'axios': require('@/views/basic/axios').default,
+      'axios': require('@/views/basic/Axios').default,
       // 'template': require('@/views/basic/template').default,
       // 'excercise': require('@/views/basic/excercise').default,
       'vuex': require('@/views/basic/Vuex').default

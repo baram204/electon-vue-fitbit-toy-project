@@ -41,7 +41,6 @@
               {label: '라우터', href: '#/router'},
               {label: 'HTTP axios 통신', href: '#/basic/axios'},
               {label: '템플릿', href: '#/basic/template'},
-              {label: '실습 Todo', href: '#/basic/excercise'},
               {label: 'vuex', href: '#/basic/vuex'},
               {label: '웹팩', href: '#/basic/webpack'}
             ]
@@ -66,7 +65,8 @@
             label: '연습',
             // href: '#/advance',
             links: [
-              {label: '핏빗인증', href: '#/excercise/fitbit'}
+              {label: '핏빗인증', href: '#/excercise/fitbit'},
+              {label: '할일목록', href: '#/excercise/todolist'}
             ]
           }
         ],

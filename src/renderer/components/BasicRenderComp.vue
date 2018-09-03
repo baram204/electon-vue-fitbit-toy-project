@@ -22,7 +22,6 @@
       // 'router': require('@/views/basic/router').default,
       'axios': require('@/views/basic/Axios').default,
       // 'template': require('@/views/basic/template').default,
-      // 'excercise': require('@/views/basic/excercise').default,
       'vuex': require('@/views/basic/Vuex').default
       // 'webpack': require('@/views/basic/webpack').default
     },

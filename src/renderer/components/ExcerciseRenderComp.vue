@@ -15,7 +15,8 @@
   export default {
     name: 'AdvanceRenderComp',
     components: {
-      'fitbit': require('@/views/excercise/fitbit').default
+      'fitbit': require('@/views/excercise/fitbit').default,
+      'todolist': require('@/views/excercise/todolist').default
       // 'project': require('@/views/advance/project').default,
       // 'instance': require('@/views/advance/instance').default,
       // 'component': require('@/views/advance/component').default,

@@ -16,7 +16,7 @@
   @import '~bootstrap-vue/dist/bootstrap-vue.css';
   // Import Main styles for this application
   @import './assets/scss/style';
-
   @import '~highlight.js/styles/ocean.css';
+  @import '~@fortawesome/fontawesome-free/css/all.css';
 
 </style>

@@ -1,38 +1,52 @@
 <template>
     <div class="inputBox shadow">
         <input type="text" v-model="newTodoItem"
-        placeholder="하고 싶은 것을 입력하세요"
-        v-on:keyup.enter="addTodo">
+               placeholder="하고 싶은 것을 입력하세요"
+               v-on:keyup.enter="addTodo">
         <span class="addContainer" v-on:click="addTodo">
             <i class="addBtn fa fa-plus" aria-hidden="true"></i>
         </span>
+        <!--{{strg}}-->
     </div>
 </template>
 
 <script>
   export default {
     name: 'todoinput',
+    created () {
+      const loaded = [...JSON.parse(localStorage.getItem(this.key))]
+      this.strg = loaded === null ? []
+        : loaded
+    },
     data () {
       return {
-        newTodoItem: ''
+        newTodoItem: '',
+        strg: [],
+        key: `todoListExercise`
       }
     },
     methods: {
       // 할일 추가
       addTodo () {
-        // console.log(this.newTodoItem)
-        return this.newTodoItem !== ''
-          // 즉시실행 익명함수
-          ? (() => {
-            // 공백 제거 후
-            const value = this.newTodoItem && this.newTodoItem.trim()
-            // 로컬 스토리지에 (키,값) 쌍으로 저장한다.
-            localStorage.setItem(value, value)
-            // 인풋창은 비우기
-            this.clearInput()
-          })()
-          // 비어있으면 로컬 스토리지에 집어넣지 않는다.
-          : ''
+        // 공백 제거 후
+        const value = this.newTodoItem && this.newTodoItem.trim()
+
+        const keys = this._.map(this.strg,
+          obj => {
+            console.log(obj.key)
+            return obj.key
+          })
+
+        console.log(keys)
+        const valKey = keys.length === 0 ? 1 : this._.max(keys) + 1
+
+        console.log(valKey)
+        this.strg.push(({key: valKey, value: value}))
+
+        localStorage.setItem(this.key, JSON.stringify(this.strg))
+
+        // 인풋창은 비우기
+        this.clearInput()
       },
       // 인풋 비우기
       clearInput () {
@@ -65,6 +79,7 @@
         float: right;
         background: linear-gradient(to right, #6478FB, #8763FB);
     }
+
     .addBtn {
         color: white;
         vertical-align: middle;

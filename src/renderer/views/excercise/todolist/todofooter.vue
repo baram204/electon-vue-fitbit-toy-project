@@ -16,8 +16,7 @@
     },
     methods: {
       clearTodo () {
-        // localStorage.clear()
-        localStorage.setItem(this.key, JSON.stringify(this.strg))
+        this.$emit('removeAll')
       }
     }
   }

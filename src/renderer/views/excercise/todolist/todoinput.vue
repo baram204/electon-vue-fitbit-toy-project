@@ -31,20 +31,8 @@
         // 공백 제거 후
         const value = this.newTodoItem && this.newTodoItem.trim()
 
-        const keys = this._.map(this.strg,
-          obj => {
-            console.log(obj.key)
-            return obj.key
-          })
-
-        console.log(keys)
-        const valKey = keys.length === 0 ? 1 : this._.max(keys) + 1
-
-        console.log(valKey)
-        this.strg.push(({key: valKey, value: value}))
-
-        localStorage.setItem(this.key, JSON.stringify(this.strg))
-
+        // 이벤트 호출하면서 값도 넘김
+        this.$emit('callParentAddTodo', value)
         // 인풋창은 비우기
         this.clearInput()
       },

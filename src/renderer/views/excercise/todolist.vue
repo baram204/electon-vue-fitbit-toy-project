@@ -1,9 +1,13 @@
 <template>
     <div id="todolist">
         <TodoHeader></TodoHeader>
-        <TodoInput></TodoInput>
-        <TodoList></TodoList>
-        <TodoFooter></TodoFooter>
+        <!--하위 이벤트는 부모 addTodo 가 연결됨-->
+        <TodoInput v-on:callParentAddTodo="addTodo"></TodoInput>
+
+        <TodoList v-bind:pStrg="strg"
+                  v-on:removeOne="removeTodo"
+        ></TodoList>
+        <TodoFooter v-on:removeAll="clearTodo"></TodoFooter>
     </div>
 </template>
 
@@ -15,6 +19,49 @@
       'TodoInput': require('@/views/excercise/todolist/todoinput').default,
       'TodoList': require('@/views/excercise/todolist/todolist').default,
       'TodoFooter': require('@/views/excercise/todolist/todofooter').default
+    },
+    created () {
+      const loaded = [...JSON.parse(localStorage.getItem(this.key))]
+      this.strg = loaded === null ? []
+        : loaded
+    },
+    data () {
+      return {
+        newTodoItem: '',
+        strg: [],
+        key: `todoListExercise`
+      }
+    },
+    methods: {
+      // 할일 추가
+      addTodo (value) {
+        const keys = this._.map(this.strg,
+          obj => {
+            // console.log(obj.key)
+            return obj.key
+          })
+
+        // console.log(keys)
+        const valKey = keys.length === 0 ? 1 : this._.max(keys) + 1
+
+        // console.log(valKey)
+        this.strg.push(({key: valKey, value: value}))
+
+        localStorage.setItem(this.key, JSON.stringify(this.strg))
+      },
+      clearTodo () {
+        // localStorage.clear()
+        this.strg = []
+        localStorage.setItem(this.key, JSON.stringify(this.strg))
+      },
+      removeTodo (todoItem, index) {
+        // this.strg = this._.without(this.strg, todoItem)
+        // 부수효과가 있는데 일단 책에서 하라니까 한다.
+        this.strg.splice(index, 1)
+        // 로컬 스토리지에 (키,값) 쌍으로 저장한다.
+        localStorage.setItem(this.key, JSON.stringify(this.strg))
+      }
+
     }
   }
 </script>

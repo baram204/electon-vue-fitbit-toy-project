@@ -2,7 +2,7 @@
     <section>
         <ul>
             <!--<li v-for="(value, key, index) in todoItems" :key="key" class="shadow">-->
-            <li v-for="(todoItem, index) in strg" :key="key" class="shadow">
+            <li v-for="(todoItem, index) in pStrg" :key="todoItem.key" class="shadow">
                 <i class="checkBtn fa fa-check" aria-hidden="true"></i>
 
                 {{todoItem.value}}
@@ -18,25 +18,14 @@
 <script>
   export default {
     name: 'todolist',
-    created () {
-      const loaded = [...JSON.parse(localStorage.getItem(this.key))]
-      this.strg = loaded === null ? []
-        : loaded
-    },
-    data () {
-      return {
-        newTodoItem: '',
-        strg: [],
-        key: `todoListExercise`
-      }
-    },
+    props: ['pStrg'],
     methods: {
       removeTodo (todoItem, index) {
         // this.strg = this._.without(this.strg, todoItem)
         // 부수효과가 있는데 일단 책에서 하라니까 한다.
-        this.strg.splice(index, 1)
+        this.pStrg.splice(index, 1)
         // 로컬 스토리지에 (키,값) 쌍으로 저장한다.
-        localStorage.setItem(this.key, JSON.stringify(this.strg))
+        localStorage.setItem(this.key, JSON.stringify(this.pStrg))
       }
     }
   }

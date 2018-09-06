@@ -7,11 +7,11 @@
             <pre>{{posts}}</pre>
         </b-card>
         <b-card title="comments">
-            <b-media v-for="cmt in comments">
+            <b-media v-for="cmt in comments" :key="comments.index">
                 <b-img slot="aside" blank blank-color="#ccc" width="64" alt="placeholder"/>
                 <h5 class="mt-0">{{cmt.title}}</h5>
                 <p>{{cmt.body}}</p>
-                <b-media v-for="subCmt in cmt.comments">
+                <b-media v-for="subCmt in cmt.comments" :key="cmt.comments.index">
                     <b-img slot="aside" blank blank-color="#ccc" width="64" alt="placeholder"/>
                     <h5 class="mt-0">{{subCmt.title}}</h5>
                     <p class="mb-0">
